@@ -20,7 +20,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  *
  */
 @Entity
-@Table(name="virtual_users")
+@Table(name="user")
 public class User implements UserDetails {
 
 	private static final long serialVersionUID = 1L;

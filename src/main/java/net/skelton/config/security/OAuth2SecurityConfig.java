@@ -22,9 +22,19 @@ import util.CustomEncoder;
 @Configuration
 @EnableWebSecurity
 public class OAuth2SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	/**
+	 * TODO
+	 * 
+	 * 
+	 * Change these queries to something suitable for you schema 
+	 * Make sure user and security role table exist , User without security 
+	 * not going to pass the security criteria  
+	 */
+	
 	private static final String USER_QUERY = "select email as username,password,iactive as enabled from virtual_users where email=?";
 	private static final String USER_ROLE_QUERY = 
-			     "select u.email as username,rl.name as role FROM virtual_users u,user_security_role rl "
+			     "select u.email as username,rl.name as role FROM user u,user_security_role rl "
 		   		+ " JOIN user_user_security_role user_role "
 		   		+ " where user_role.user_id = u.id AND u.email=?";
 	
